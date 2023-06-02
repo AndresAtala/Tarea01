@@ -1,12 +1,12 @@
 public class Viajes {
     private String CiudadOrigen;
-    private int CiudadDestino;
+    private int ciudadDestino;
     private String HoraSalida;
     private String HoraLlegada;
 
     public Viaje(String ciudadOrigen, int ciudadDestino, String horaSalida, String horaLlegada) {
         CiudadOrigen = ciudadOrigen;
-        CiudadDestino = ciudadDestino;
+        ciudadDestino = ciudadDestino;
         HoraSalida = horaSalida;
         HoraLlegada = horaLlegada;
     }
@@ -17,13 +17,12 @@ public class Viajes {
     }
 
     public void setCiudadOrigen(String ciudadOrigen) {
-        // TODO - implement viaje.setCiudadOrigen
+        // TODO - implemenz viaje.setCiudadOrigen
         throw new UnsupportedOperationException();
     }
 
     public int getCiudadDestino() {
-        // TODO - implement viaje.getCiudadDestino
-        throw new UnsupportedOperationException();
+        return this.ciudadDestino;
     }
 
     public void setCiudadDestino(int ciudadDestino) {

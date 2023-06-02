@@ -6,7 +6,7 @@ public class Empresa {
     private String Direccion;
     private String RedesSociales;
     private List<Bus> buses;
-    private List<Conductor> conductores;
+    public List<Conductor> conductores;
 
     public Empresa(int rut, String direccion, String redesSociales) {
         Rut = rut;
@@ -89,4 +89,24 @@ public class Empresa {
             }
         }
     }
+    public class Main {
+        public static void main(String[] args) {
+            Empresa empresa = new Empresa(123456789, "calle sin nombre", "buses");
+
+            int rut = empresa.getRut();
+            String direccion = empresa.getDireccion();
+            String redesSociales = empresa.getRedesSociales();
+
+
+            empresa.setRut(2078880288);
+            empresa.setDireccion("calle sin nimbre");
+            empresa.setRedesSociales("Buses.com");
+
+            rut = empresa.getRut();
+            direccion = empresa.getDireccion();
+            redesSociales = empresa.getRedesSociales();
+
+        }
+    }
+
 }
