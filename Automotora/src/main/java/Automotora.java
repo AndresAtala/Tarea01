@@ -58,10 +58,10 @@ public class Automotora {
         Camioneta camioneta = new Camioneta();
         ingresarAutomovil(scanner, camioneta);
 
-        System.out.print("Ingrese la capacidad de carga: ");
+        System.out.print("Ingrese la capacidad de carga en kilogramos: ");
         float capacidadCarga = scanner.nextFloat();
         scanner.nextLine();
-        System.out.print("Ingrese la capacidad de remolque: ");
+        System.out.print("Ingrese la capacidad de remolque en kilogramos: ");
         float capacidadRemolque = scanner.nextFloat();
         scanner.nextLine();
 
@@ -76,13 +76,13 @@ public class Automotora {
         Deportivo deportivo = new Deportivo();
         ingresarAutomovil(scanner, deportivo);
 
-        System.out.print("Ingrese la velocidad máxima: ");
+        System.out.print("Ingrese la velocidad máxima en km/h: ");
         int velocidadMax = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Ingrese la aceleración: ");
+        System.out.print("Ingrese la aceleración de 0km/h a 100km/h: ");
         float aceleracion = scanner.nextFloat();
         scanner.nextLine();
-        System.out.print("Ingrese el sistema de escape: ");
+        System.out.print("Ingrese el sistema de escape, modificado o stock: ");
         String sistEscape = scanner.nextLine();
 
         deportivo.setVelocidadMax(velocidadMax);
@@ -94,7 +94,7 @@ public class Automotora {
     }
 
     public static void ingresarAutomovil(Scanner scanner, Automovil automovil) {
-        System.out.print("Ingrese el motor: ");
+        System.out.print("Ingrese la cilindrada del motor: ");
         String motor = scanner.nextLine();
         System.out.print("Ingrese la marca: ");
         String marca = scanner.nextLine();
@@ -102,12 +102,12 @@ public class Automotora {
         String modelo = scanner.nextLine();
         System.out.print("Ingrese el año: ");
         String anio = scanner.nextLine();
-        System.out.print("Ingrese el combustible: ");
+        System.out.print("Ingrese el combustible, bencina, diesel, hibrido, electrico: ");
         String combustible = scanner.nextLine();
         System.out.print("Ingrese el número de puertas: ");
         int nroPuertas = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Ingrese la transmisión: ");
+        System.out.print("Ingrese la transmisión, manual o automatica: ");
         String transmision = scanner.nextLine();
         System.out.print("Ingrese los kilómetros: ");
         String kilometros = scanner.nextLine();
