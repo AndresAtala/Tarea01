@@ -38,7 +38,7 @@ public class Automotora {
         Sedan sedan = new Sedan();
         ingresarAutomovil(scanner, sedan);
 
-        System.out.print("Ingrese la capacidad del maletero en litros: ");
+        System.out.print("Ingrese la capacidad del maletero en litros : ");
         float capacidadMaletero = scanner.nextFloat();
         scanner.nextLine();
         System.out.print("¿Tiene radio touch? (si/no): ");
