@@ -69,7 +69,7 @@ public class Automotora {
         camioneta.setCapacidadRemolque(capacidadRemolque);
 
         catalogoAutomoviles.add(camioneta);
-        System.out.println("Camioneta ingresada correctamente.");
+        System.out.println("Camioneta ingresada correctamente. ");
     }
 
     public static void ingresarDeportivo(Scanner scanner, List<Automovil> catalogoAutomoviles) {
