@@ -5,6 +5,16 @@ public abstract class Persona {
 	private String direccion;
 	private String rut;
 	private String nroTelefono;
+	public Persona() {
+	}
+
+	public Persona(String nombre, String apellido, String rut, String direccion, String nroTelefono) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.rut = rut;
+		this.direccion = direccion;
+		this.nroTelefono = nroTelefono;
+	}
 
 	public String getNombre() {
 		return nombre;

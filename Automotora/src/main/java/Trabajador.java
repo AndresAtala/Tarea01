@@ -2,8 +2,15 @@ public class Trabajador extends Persona {
 
 	private String cargo;
 	private String sueldo;
-	private int experiencia;
-
+	private String experiencia;
+	public Trabajador() {
+	}
+		public Trabajador(String nombre, String apellido, String rut, String direccion, String nroTelefono, String cargo, String sueldo, String experiencia) {
+			super(nombre, apellido, rut, direccion, nroTelefono);
+			this.cargo = cargo;
+			this.sueldo = sueldo;
+			this.experiencia = experiencia;
+		}
 	public String getCargo() {
 		return cargo;
 	}
@@ -20,11 +27,11 @@ public class Trabajador extends Persona {
 		this.sueldo = sueldo;
 	}
 
-	public int getExperiencia() {
+	public String getExperiencia() {
 		return experiencia;
 	}
 
-	public void setExperiencia(int experiencia) {
+	public void setExperiencia(String experiencia) {
 		this.experiencia = experiencia;
 	}
 }
