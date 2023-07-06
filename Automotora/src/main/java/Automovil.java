@@ -1,5 +1,5 @@
 public abstract class Automovil {
-	private String motor;
+	private String precio;
 	private String marca;
 	private String modelo;
 	private String anio;
@@ -7,17 +7,27 @@ public abstract class Automovil {
 	private int nroPuertas;
 	private String transmision;
 	private String kilometros;
+	public Automovil(String precio, String marca, String modelo, String anio, String combustible, int nroPuertas,
+					 String transmision, String kilometros) {
+		this.precio = precio;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.anio = anio;
+		this.combustible = combustible;
+		this.nroPuertas = nroPuertas;
+		this.transmision = transmision;
+		this.kilometros = kilometros;
+	}
 
 	public Automovil() {
-		// Constructor sin argumentos
 	}
 
-	public String getMotor() {
-		return motor;
+	public String getPrecio() {
+		return precio;
 	}
 
-	public void setMotor(String motor) {
-		this.motor = motor;
+	public void setPrecio(String precio) {
+		this.precio = precio;
 	}
 
 	public String getMarca() {
@@ -74,5 +84,18 @@ public abstract class Automovil {
 
 	public void setKilometros(String kilometros) {
 		this.kilometros = kilometros;
+	}
+	@Override
+	public String toString() {
+		return "Automovil" +
+				"precio=" + precio +
+				", Marca=" + marca+
+				", Modelo=" + modelo +
+				", Año=" + anio +
+				", Combustible=" + combustible +
+				", Número de puertas=" + nroPuertas +
+				", Transmisión=" + transmision +
+				", Kilómetros=" + kilometros ;
+
 	}
 }
