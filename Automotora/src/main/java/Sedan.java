@@ -3,7 +3,7 @@ public class Sedan extends Automovil {
 	private boolean radioTouch;
 	private boolean gps;
 
-	public Sedan(String precio, String marca, String modelo, String anio, String combustible, int nroPuertas,
+	public Sedan(String precio, String marca, String modelo, String anio, String combustible, String nroPuertas,
 				 String transmision, String kilometros, float capacidadMaletero, boolean radioTouch, boolean gps) {
 		super(precio, marca, modelo, anio, combustible, nroPuertas, transmision, kilometros);
 		this.capacidadMaletero = capacidadMaletero;
@@ -13,7 +13,7 @@ public class Sedan extends Automovil {
 
 	// Constructor sin argumentos
 	public Sedan() {
-		super("", "", "", "", "", 0, "", "");
+		super("", "", "", "", "", "0", "", "");
 		this.capacidadMaletero = 0;
 		this.radioTouch = false;
 		this.gps = false;

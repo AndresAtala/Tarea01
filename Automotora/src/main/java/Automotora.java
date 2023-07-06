@@ -2,18 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Optional;
 
 public class Automotora {
 
-    /* mostrar todos los atributos de los trabajadores y crear metodo para pedir datos del cliente*/
+    /* comprobar los datos que ingresan de cada automovil*/
     public static void main(String[] args) {
         List<Automovil> catalogoAutomoviles = new ArrayList<>();
         List<Trabajador> listaTrabajadores = new ArrayList<>();
-        AgregarAutos(catalogoAutomoviles);
+        //AgregarAutos(catalogoAutomoviles);
         AgregarTrabajadores(listaTrabajadores);
         iniciarMenu(catalogoAutomoviles, listaTrabajadores);
     }
-
 
 
     public static void iniciarMenu(List<Automovil> catalogoAutomoviles, List<Trabajador> listaTrabajadores) {
@@ -25,14 +25,14 @@ public class Automotora {
 
         boolean salir = false;
         while (!salir) {
-           opcionesMenu();
+            opcionesMenu();
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcion) {
                 case 1 -> {
                     ingresarSedan(scanner, catalogoAutomoviles);
-                    seleccionarTrabajadores( listaTrabajadores);
+                    seleccionarTrabajadores(listaTrabajadores);
                 }
                 case 2 -> {
                     ingresarCamioneta(scanner, catalogoAutomoviles);
@@ -116,21 +116,27 @@ public class Automotora {
     public static void ingresarAutomovil(Scanner scanner, Automovil automovil) {
         System.out.print("Ingrese el precio del automovil: ");
         String precio = scanner.nextLine();
+        comprobarPrecioIngresados(precio);
         System.out.print("Ingrese la marca: ");
         String marca = scanner.nextLine();
         System.out.print("Ingrese el modelo: ");
         String modelo = scanner.nextLine();
         System.out.print("Ingrese el año: ");
         String anio = scanner.nextLine();
+        Comprobaranio(anio);
         System.out.print("Ingrese el combustible, bencina, diesel, hibrido, electrico: ");
         String combustible = scanner.nextLine();
+        comprobarmotor(combustible);
         System.out.print("Ingrese el número de puertas: ");
-        int nroPuertas = scanner.nextInt();
-        scanner.nextLine();
+        String nroPuertas = scanner.nextLine();
+        comprobarPuertas(nroPuertas);
+
         System.out.print("Ingrese la transmisión, manual o automatica: ");
         String transmision = scanner.nextLine();
+        comprobarTransmision(transmision);
         System.out.print("Ingrese los kilómetros: ");
         String kilometros = scanner.nextLine();
+        comprobarkmIngresados(kilometros);
 
         automovil.setPrecio(precio);
         automovil.setMarca(marca);
@@ -152,12 +158,13 @@ public class Automotora {
             }
         }
     }
+
     public static void AgregarAutos(List<Automovil> catalogoAutomoviles) {
-        Sedan sedan = new Sedan("3600", "toyota", "corolla", "2023", "Gasolina", 5, "Automática", "0 km", 500, true, false);
+        Sedan sedan = new Sedan("3600", "toyota", "corolla", "2023", "Gasolina", "5", "Automática", "0 km", 500, true, false);
         catalogoAutomoviles.add(sedan);
-        Camioneta camioneta = new Camioneta("5000", "ford", "f150", "2023", "bencina", 4, "automatica", "0 km", 1000, 5000);
+        Camioneta camioneta = new Camioneta("5000", "ford", "f150", "2023", "bencina", "4", "automatica", "0 km", 1000, 5000);
         catalogoAutomoviles.add(camioneta);
-        Deportivo deportivo = new Deportivo("Motor Deportivo", "Marca Deportivo", "Modelo Deportivo", "2023", "Gasolina", 2, "Manual", "0 km", "300", "4.2", "Escape Deportivo");
+        Deportivo deportivo = new Deportivo("Motor Deportivo", "Marca Deportivo", "Modelo Deportivo", "2023", "Gasolina", "2", "Manual", "0 km", "300", "4.2", "Escape Deportivo");
         catalogoAutomoviles.add(deportivo);
     }
 
@@ -184,12 +191,14 @@ public class Automotora {
 
         return cliente;
     }
-    public static void AgregarTrabajadores(List<Trabajador> listaTrabajadores){
+
+    public static void AgregarTrabajadores(List<Trabajador> listaTrabajadores) {
         Trabajador trabajador1 = new Trabajador("Juan", "Pérez", "RUT", "Dirección", "Número de teléfono", "Cargo", "Sueldo", "Experiencia");
         Trabajador trabajador2 = new Trabajador("María", "González", "RUT", "Dirección", "Número de teléfono", "Cargo", "Sueldo", "Experiencia");
         listaTrabajadores.add(trabajador1);
         listaTrabajadores.add(trabajador2);
     }
+
     public static Trabajador seleccionarTrabajador(List<Trabajador> listaTrabajadores, Random random) {
         if (listaTrabajadores.isEmpty()) {
             return null;
@@ -197,6 +206,7 @@ public class Automotora {
         int index = random.nextInt(listaTrabajadores.size());
         return listaTrabajadores.get(index);
     }
+
     public static void mostrarTrabajadores(List<Trabajador> listaTrabajadores) {
         if (listaTrabajadores.isEmpty()) {
             System.out.println("No hay trabajadores registrados");
@@ -213,7 +223,8 @@ public class Automotora {
             }
         }
     }
-    public static void opcionesMenu(){
+
+    public static void opcionesMenu() {
         System.out.println("Menú:");
         System.out.println("1. Ingresar Sedán");
         System.out.println("2. Ingresar Camioneta");
@@ -223,9 +234,96 @@ public class Automotora {
         System.out.println("6. salir");
         System.out.print("Ingrese una opción: ");
     }
-    public static void seleccionarTrabajadores(List<Trabajador> listaTrabajadores){
+
+    public static void seleccionarTrabajadores(List<Trabajador> listaTrabajadores) {
         Trabajador trabajadorAtendiendo = seleccionarTrabajador(listaTrabajadores, new Random());
         System.out.println("El trabajador " + trabajadorAtendiendo.getNombre() + " " + trabajadorAtendiendo.getApellido() + " lo atendió.");
     }
 
+    public static boolean comprobarPrecioIngresados(String precio) {
+        Scanner scanner = new Scanner(System.in);
+        while (precio.isEmpty() || contieneLetras(precio)) {
+            System.out.println("Ingrese un precio:");
+            precio = scanner.nextLine().trim();
+
+            if (precio.isEmpty() || contieneLetras(precio)) {
+                System.out.println("Dato inválido. Por favor, ingrese nuevamente.");
+            }
+        }
+        return true;
+
     }
+    public static boolean contieneLetras(String str) {
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean Comprobaranio(String anio) {
+        Scanner scanner = new Scanner(System.in);
+        while (contieneLetras(anio) || anio.isEmpty()) {
+            System.out.println("ingrese año valido");
+            anio = scanner.nextLine().trim();
+        }
+        return false;
+    }
+    public static boolean comprobarTransmision(String transmision) {
+        Scanner scanner = new Scanner(System.in);
+        while (!transmision.equals("automatica") && !transmision.equals("manual")) {
+            System.out.println("ingrese tipo de transmision valida (Manual, Automatica)");
+            transmision = scanner.nextLine().trim();
+            if (transmision.isEmpty()) {
+                System.out.println("Dato inválido. Por favor, ingrese nuevamente.");
+            }
+        }
+        return false;
+    }
+
+    public static boolean comprobarkmIngresados(String kilometros) {
+        Scanner scanner = new Scanner(System.in);
+        while (kilometros.isEmpty() || contieneLetras(kilometros)) {
+            System.out.println("Ingrese km en numeros:");
+            kilometros = scanner.nextLine().trim();
+
+            if (kilometros.isEmpty() || contieneLetras(kilometros)) {
+                System.out.println("Dato inválido. Por favor, ingrese nuevamente.");
+            }
+        }
+        return true;
+    }
+    public static boolean comprobarmotor(String combustible) {
+        Scanner scanner = new Scanner(System.in);
+        while (!combustible.equals("bencina") && !combustible.equals("diesel") && !combustible.equals("hibrido") && !combustible.equals("electrico")) {
+            System.out.println("ingrese tipo de combustible valido, (bencina, Diesel, Hibrido, Electrico");
+            combustible = scanner.nextLine().trim();
+            if (combustible.isEmpty()) {
+                System.out.println("Dato inválido. Por favor, ingrese nuevamente.");
+            }
+        }
+        return false;
+    }
+    public static boolean comprobarPuertas(String puerta) {
+        Scanner scanner = new Scanner(System.in);
+        while (puerta.isEmpty() || contieneLetras(puerta) || !esCantidadValida(puerta)) {
+            System.out.println("Ingrese la cantidad de puertas (números del 1 al 4):");
+            puerta = scanner.nextLine().trim();
+
+            if (puerta.isEmpty() || contieneLetras(puerta)) {
+                System.out.println("Dato inválido. Por favor, ingrese nuevamente.");
+            } else if (!esCantidadValida(puerta)) {
+                System.out.println("La cantidad de puertas no es válida. Por favor, ingrese nuevamente.");
+            }
+        }
+        return true;
+    }
+
+    public static boolean esCantidadValida(String cantidad) {
+        int puertas = Integer.parseInt(cantidad);
+        return puertas >= 1 && puertas <= 5;
+    }
+}
+
+

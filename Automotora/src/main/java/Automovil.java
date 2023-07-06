@@ -4,10 +4,10 @@ public abstract class Automovil {
 	private String modelo;
 	private String anio;
 	private String combustible;
-	private int nroPuertas;
+	private String nroPuertas;
 	private String transmision;
 	private String kilometros;
-	public Automovil(String precio, String marca, String modelo, String anio, String combustible, int nroPuertas,
+	public Automovil(String precio, String marca, String modelo, String anio, String combustible, String nroPuertas,
 					 String transmision, String kilometros) {
 		this.precio = precio;
 		this.marca = marca;
@@ -62,11 +62,11 @@ public abstract class Automovil {
 		this.combustible = combustible;
 	}
 
-	public int getNroPuertas() {
+	public String getNroPuertas() {
 		return nroPuertas;
 	}
 
-	public void setNroPuertas(int nroPuertas) {
+	public void setNroPuertas(String nroPuertas) {
 		this.nroPuertas = nroPuertas;
 	}
 

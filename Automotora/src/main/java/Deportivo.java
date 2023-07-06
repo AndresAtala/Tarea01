@@ -3,7 +3,7 @@ public class Deportivo extends Automovil {
 	private String aceleracion;
 	private String sistEscape;
 
-	public Deportivo(String precio, String marca, String modelo, String anio, String combustible, int nroPuertas,
+	public Deportivo(String precio, String marca, String modelo, String anio, String combustible, String nroPuertas,
 					 String transmision, String kilometros, String velocidadMax, String aceleracion, String sistEscape) {
 		super(precio, marca, modelo, anio, combustible, nroPuertas, transmision, kilometros);
 		this.velocidadMax = velocidadMax;
@@ -13,7 +13,7 @@ public class Deportivo extends Automovil {
 
 	// Constructor sin argumentos
 	public Deportivo() {
-		super("", "", "", "", "", 0, "", "");
+		super("", "", "", "", "", "", "", "");
 		this.velocidadMax = "";
 		this.aceleracion = "";
 		this.sistEscape = "";
