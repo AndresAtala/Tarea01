@@ -1,9 +1,9 @@
 public class Camioneta extends Automovil {
-	private float capacidadDeCarga;
-	private float capacidadRemolque;
+	private String capacidadDeCarga;
+	private String capacidadRemolque;
 
 	public Camioneta(String precio, String marca, String modelo, String anio, String combustible, String nroPuertas,
-					 String transmision, String kilometros, float capacidadDeCarga, float capacidadRemolque) {
+					 String transmision, String kilometros, String capacidadDeCarga, String capacidadRemolque) {
 		super(precio, marca, modelo, anio, combustible, nroPuertas, transmision, kilometros);
 		this.capacidadDeCarga = capacidadDeCarga;
 		this.capacidadRemolque = capacidadRemolque;
@@ -12,23 +12,23 @@ public class Camioneta extends Automovil {
 	// Constructor sin argumentos
 	public Camioneta() {
 		super("", "", "", "", "", "", "", "");
-		this.capacidadDeCarga = 0;
-		this.capacidadRemolque = 0;
+		this.capacidadDeCarga = "";
+		this.capacidadRemolque = "";
 	}
 
-	public float getCapacidadDeCarga() {
+	public String getCapacidadDeCarga() {
 		return capacidadDeCarga;
 	}
 
-	public void setCapacidadDeCarga(float capacidadDeCarga) {
+	public void setCapacidadDeCarga(String capacidadDeCarga) {
 		this.capacidadDeCarga = capacidadDeCarga;
 	}
 
-	public float getCapacidadRemolque() {
+	public String getCapacidadRemolque() {
 		return capacidadRemolque;
 	}
 
-	public void setCapacidadRemolque(float capacidadRemolque) {
+	public void setCapacidadRemolque(String capacidadRemolque) {
 		this.capacidadRemolque = capacidadRemolque;
 	}
 
